@@ -3,6 +3,8 @@ package tictactoe;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class TicTacToe {
@@ -33,7 +35,7 @@ public class TicTacToe {
     public void initJFrame() {
         // Creating the main frame: Title and dimensions.
         JFrame frame = new JFrame("Tic Tac Toe");
-        frame.setSize(800, 600);
+        frame.setSize(800, 550);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
 
@@ -67,22 +69,61 @@ public class TicTacToe {
         // Creating JSplitPane
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel);
         splitPane.setDividerLocation(400);
-        splitPane.setBounds(0, 80, 800, 450);
+        splitPane.setBounds(0, 80, 800, 385);
 
         // Creating the end panel: Color, dimensions and border.
         JPanel endPanel = new JPanel();
         endPanel.setBackground(Color.PINK);
         endPanel.setBorder(whiteBorder);
-        endPanel.setBounds(0, 522, 800, 40);
+        endPanel.setBounds(0, 463, 800, 50);
 
         // Creating the end Label: Font, size and color.
         String text = "[\"" + getPlayer1() + "\"] starts the game!";
         JLabel endLabel = new JLabel(text);
-        endLabel.setFont(new Font("Comic Sans MS", Font.PLAIN,25 ));
+        endLabel.setFont(new Font("Comic Sans MS", Font.PLAIN,30 ));
         endLabel.setForeground(Color.BLACK);
 
-        // Inserting end label into end panel;
+        // Inserting end label into end panel.
         endPanel.add(endLabel);
+
+        // Creating buttons.
+        JButton btnOne = new JButton();
+        btnOne.setPreferredSize(new Dimension(120, 120));
+        btnOne.setText(new Font());
+        JButton btnTwo = new JButton();
+        btnTwo.setPreferredSize(new Dimension(120, 120));
+        JButton btnThree = new JButton();
+        btnThree.setPreferredSize(new Dimension(120, 120));
+        JButton btnFour = new JButton();
+        btnFour.setPreferredSize(new Dimension(120, 120));
+        JButton btnFive = new JButton();
+        btnFive.setPreferredSize(new Dimension(120, 120));
+        JButton btnSix = new JButton();
+        btnSix.setPreferredSize(new Dimension(120, 120));
+        JButton btnSeven = new JButton();
+        btnSeven.setPreferredSize(new Dimension(120, 120));
+        JButton btnEight = new JButton();
+        btnEight.setPreferredSize(new Dimension(120, 120));
+        JButton btnNine = new JButton();
+        btnNine.setPreferredSize(new Dimension(120, 120));
+
+        // Inserting buttons into left panel.
+        leftPanel.add(btnOne);
+        leftPanel.add(btnTwo);
+        leftPanel.add(btnThree);
+        leftPanel.add(btnFour);
+        leftPanel.add(btnFive);
+        leftPanel.add(btnSix);
+        leftPanel.add(btnSeven);
+        leftPanel.add(btnEight);
+        leftPanel.add(btnNine);
+
+        btnOne.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               btnOne.setText(getPlayer1());
+            }
+        });
 
         // Inserting the panels into frame.
         frame.add(mainPanel);
