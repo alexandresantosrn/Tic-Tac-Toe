@@ -12,6 +12,9 @@ public class TicTacToe {
     private String player1 = "";
     private String player2 = "";
     private final int[][] board = new int[3][3];
+    private String oldPlay = "";
+    private String nextPlay = "";
+    boolean played;
 
     public TicTacToe() {
         choosePlayer();
@@ -33,6 +36,9 @@ public class TicTacToe {
     }
 
     public void initJFrame() {
+
+        setPlayed(false);
+
         // Creating the main frame: Title and dimensions.
         JFrame frame = new JFrame("Tic Tac Toe");
         frame.setSize(800, 550);
@@ -86,26 +92,36 @@ public class TicTacToe {
         // Inserting end label into end panel.
         endPanel.add(endLabel);
 
+        // Creating Fonts for JButtons
+        Font buttonFont = new Font("Comic Sans MS", Font.BOLD, 100);
+
         // Creating buttons.
         JButton btnOne = new JButton();
         btnOne.setPreferredSize(new Dimension(120, 120));
-        btnOne.setText(new Font());
+        btnOne.setFont(buttonFont);
         JButton btnTwo = new JButton();
         btnTwo.setPreferredSize(new Dimension(120, 120));
+        btnTwo.setFont(buttonFont);
         JButton btnThree = new JButton();
         btnThree.setPreferredSize(new Dimension(120, 120));
+        btnThree.setFont(buttonFont);
         JButton btnFour = new JButton();
         btnFour.setPreferredSize(new Dimension(120, 120));
+        btnFour.setFont(buttonFont);
         JButton btnFive = new JButton();
         btnFive.setPreferredSize(new Dimension(120, 120));
+        btnFive.setFont(buttonFont);
         JButton btnSix = new JButton();
         btnSix.setPreferredSize(new Dimension(120, 120));
+        btnSix.setFont(buttonFont);
         JButton btnSeven = new JButton();
         btnSeven.setPreferredSize(new Dimension(120, 120));
         JButton btnEight = new JButton();
         btnEight.setPreferredSize(new Dimension(120, 120));
+        btnEight.setFont(buttonFont);
         JButton btnNine = new JButton();
         btnNine.setPreferredSize(new Dimension(120, 120));
+        btnNine.setFont(buttonFont);
 
         // Inserting buttons into left panel.
         leftPanel.add(btnOne);
@@ -118,10 +134,35 @@ public class TicTacToe {
         leftPanel.add(btnEight);
         leftPanel.add(btnNine);
 
+        // Button one action
         btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               btnOne.setText(getPlayer1());
+               if(!played) {
+                   btnOne.setText(getPlayer1());
+                   setOldPlay(getPlayer1());
+                   setNextPlay(getPlayer2());
+                   setPlayed(true);
+               }
+               else {
+                   btnOne.setText(nextPlay);
+               }
+            }
+        });
+
+        btnTwo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!played) {
+                    btnTwo.setText(getPlayer1());
+                    setOldPlay(getPlayer1());
+                    setNextPlay(getPlayer2());
+                    setPlayed(true);
+                }
+                else {
+                    btnTwo.setText(nextPlay);
+                    setOldPlay(getNextPlay());
+                }
             }
         });
 
@@ -136,9 +177,13 @@ public class TicTacToe {
         frame.setVisible(true);
     }
 
-    public String getPlayer1() { return player1; }
+    public String getPlayer1() {
+        return player1;
+    }
 
-    public void setPlayer1(String player1) { this.player1 = player1; }
+    public void setPlayer1(String player1) {
+        this.player1 = player1;
+    }
 
     public String getPlayer2() {
         return player2;
@@ -146,5 +191,29 @@ public class TicTacToe {
 
     public void setPlayer2(String player2) {
         this.player2 = player2;
+    }
+
+    public String getOldPlay() {
+        return oldPlay;
+    }
+
+    public void setOldPlay(String oldPlay) {
+        this.oldPlay = oldPlay;
+    }
+
+    public String getNextPlay() {
+        return nextPlay;
+    }
+
+    public void setNextPlay(String nextPlay) {
+        this.nextPlay = nextPlay;
+    }
+
+    public boolean isPlayed() {
+        return played;
+    }
+
+    public void setPlayed(boolean played) {
+        this.played = played;
     }
 }
