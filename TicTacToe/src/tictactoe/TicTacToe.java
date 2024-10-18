@@ -144,9 +144,6 @@ public class TicTacToe {
                    setNextPlay(getPlayer2());
                    setPlayed(true);
                }
-               else {
-                   btnOne.setText(nextPlay);
-               }
             }
         });
 
