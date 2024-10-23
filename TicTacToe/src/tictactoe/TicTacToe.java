@@ -12,9 +12,7 @@ public class TicTacToe {
     private String player1 = "";
     private String player2 = "";
     private final int[][] board = new int[3][3];
-    private String oldPlay = "";
     private String nextPlay = "";
-    boolean played;
 
     public TicTacToe() {
         choosePlayer();
@@ -36,8 +34,6 @@ public class TicTacToe {
     }
 
     public void initJFrame() {
-
-        setPlayed(false);
 
         // Creating the main frame: Title and dimensions.
         JFrame frame = new JFrame("Tic Tac Toe");
@@ -116,6 +112,7 @@ public class TicTacToe {
         btnSix.setFont(buttonFont);
         JButton btnSeven = new JButton();
         btnSeven.setPreferredSize(new Dimension(120, 120));
+        btnSeven.setFont(buttonFont);
         JButton btnEight = new JButton();
         btnEight.setPreferredSize(new Dimension(120, 120));
         btnEight.setFont(buttonFont);
@@ -138,27 +135,223 @@ public class TicTacToe {
         btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               if(!played) {
-                   btnOne.setText(getPlayer1());
-                   setOldPlay(getPlayer1());
-                   setNextPlay(getPlayer2());
-                   setPlayed(true);
+               if (btnOne.getText().isEmpty()) {
+                   if (nextPlay.isEmpty()) {
+                       btnOne.setText(getPlayer1());
+                       setNextPlay(getPlayer2());
+                       endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                   } else {
+                       btnOne.setText(nextPlay);
+
+                       // Updating the variable nextPlay
+                       if (getNextPlay().equals("O")) {
+                           setNextPlay("X");
+                       } else {
+                           setNextPlay("O");
+                       }
+
+                       endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                   }
                }
             }
         });
 
+        // Button two action
         btnTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!played) {
-                    btnTwo.setText(getPlayer1());
-                    setOldPlay(getPlayer1());
-                    setNextPlay(getPlayer2());
-                    setPlayed(true);
+                if (btnTwo.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnTwo.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnTwo.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
                 }
-                else {
-                    btnTwo.setText(nextPlay);
-                    setOldPlay(getNextPlay());
+            }
+        });
+
+        // Button three action
+        btnThree.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnThree.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnThree.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnThree.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button four action
+        btnFour.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnFour.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnFour.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnFour.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button five action
+        btnFive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnFive.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnFive.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnFive.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button six action
+        btnSix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnSix.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnSix.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnSix.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button seven action
+        btnSeven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnSeven.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnSeven.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnSeven.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button eight action
+        btnEight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnEight.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnEight.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnEight.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+                }
+            }
+        });
+
+        // Button nine action
+        btnNine.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (btnNine.getText().isEmpty()) {
+                    if (nextPlay.isEmpty()) {
+                        btnNine.setText(getPlayer1());
+                        setNextPlay(getPlayer2());
+                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
+                    } else {
+                        btnNine.setText(nextPlay);
+
+                        // Updating the variable nextPlay
+                        if (getNextPlay().equals("O")) {
+                            setNextPlay("X");
+                        } else {
+                            setNextPlay("O");
+                        }
+
+                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
                 }
             }
         });
@@ -190,14 +383,6 @@ public class TicTacToe {
         this.player2 = player2;
     }
 
-    public String getOldPlay() {
-        return oldPlay;
-    }
-
-    public void setOldPlay(String oldPlay) {
-        this.oldPlay = oldPlay;
-    }
-
     public String getNextPlay() {
         return nextPlay;
     }
@@ -206,11 +391,4 @@ public class TicTacToe {
         this.nextPlay = nextPlay;
     }
 
-    public boolean isPlayed() {
-        return played;
-    }
-
-    public void setPlayed(boolean played) {
-        this.played = played;
-    }
 }
