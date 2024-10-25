@@ -88,7 +88,7 @@ public class TicTacToe {
         // Inserting end label into end panel.
         endPanel.add(endLabel);
 
-        // Creating Fonts for JButtons
+        // Creating Fonts for JButtons.
         Font buttonFont = new Font("Comic Sans MS", Font.BOLD, 100);
 
         // Creating buttons.
@@ -150,6 +150,7 @@ public class TicTacToe {
                            setNextPlay("O");
                        }
 
+                       // Showing the player's turn.
                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                    }
                }
@@ -175,6 +176,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -200,6 +202,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -225,6 +228,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -250,6 +254,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -275,6 +280,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -300,6 +306,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -325,6 +332,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
@@ -350,6 +358,7 @@ public class TicTacToe {
                             setNextPlay("O");
                         }
 
+                        // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
                 }
