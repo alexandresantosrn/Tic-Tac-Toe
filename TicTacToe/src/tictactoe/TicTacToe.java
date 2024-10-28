@@ -11,7 +11,7 @@ public class TicTacToe {
 
     private String player1 = "";
     private String player2 = "";
-    private final int[][] board = new int[3][3];
+    private final String[][] board = new String[3][3];
     private String nextPlay = "";
 
     public TicTacToe() {
@@ -138,10 +138,13 @@ public class TicTacToe {
                if (btnOne.getText().isEmpty()) {
                    if (nextPlay.isEmpty()) {
                        btnOne.setText(getPlayer1());
+                       board[0][0] = getPlayer1();
+
                        setNextPlay(getPlayer2());
                        endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                    } else {
                        btnOne.setText(nextPlay);
+                       board[0][0] = nextPlay;
 
                        // Updating the variable nextPlay
                        if (getNextPlay().equals("O")) {
@@ -152,6 +155,10 @@ public class TicTacToe {
 
                        // Showing the player's turn.
                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                   }
+
+                   if (checkWinner()) {
+                        endLabel.setText("[" + btnOne.getText() + "] won the game.");
                    }
                }
             }
@@ -164,10 +171,13 @@ public class TicTacToe {
                 if (btnTwo.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnTwo.setText(getPlayer1());
+                        board[0][1] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnTwo.setText(nextPlay);
+                        board[0][1] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -178,6 +188,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnTwo.getText() + "] won the game.");
                     }
                 }
             }
@@ -190,10 +204,13 @@ public class TicTacToe {
                 if (btnThree.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnThree.setText(getPlayer1());
+                        board[0][2] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnThree.setText(nextPlay);
+                        board[0][2] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -204,6 +221,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnThree.getText() + "] won the game.");
                     }
                 }
             }
@@ -216,10 +237,13 @@ public class TicTacToe {
                 if (btnFour.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnFour.setText(getPlayer1());
+                        board[1][0] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnFour.setText(nextPlay);
+                        board[1][0] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -230,6 +254,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnFour.getText() + "] won the game.");
                     }
                 }
             }
@@ -242,10 +270,13 @@ public class TicTacToe {
                 if (btnFive.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnFive.setText(getPlayer1());
+                        board[1][1] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnFive.setText(nextPlay);
+                        board[1][1] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -256,6 +287,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnFive.getText() + "] won the game.");
                     }
                 }
             }
@@ -268,10 +303,13 @@ public class TicTacToe {
                 if (btnSix.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnSix.setText(getPlayer1());
+                        board[1][2] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnSix.setText(nextPlay);
+                        board[1][2] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -282,6 +320,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnSix.getText() + "] won the game.");
                     }
                 }
             }
@@ -294,10 +336,13 @@ public class TicTacToe {
                 if (btnSeven.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnSeven.setText(getPlayer1());
+                        board[2][0] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnSeven.setText(nextPlay);
+                        board[2][0] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -308,6 +353,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnSeven.getText() + "] won the game.");
                     }
                 }
             }
@@ -320,10 +369,13 @@ public class TicTacToe {
                 if (btnEight.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnEight.setText(getPlayer1());
+                        board[2][1] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnEight.setText(nextPlay);
+                        board[2][1] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -334,6 +386,10 @@ public class TicTacToe {
 
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
+                    }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnEight.getText() + "] won the game.");
                     }
                 }
             }
@@ -346,6 +402,8 @@ public class TicTacToe {
                 if (btnNine.getText().isEmpty()) {
                     if (nextPlay.isEmpty()) {
                         btnNine.setText(getPlayer1());
+                        board[2][2] = getPlayer1();
+
                         setNextPlay(getPlayer2());
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
@@ -361,6 +419,10 @@ public class TicTacToe {
                         // Showing the player's turn.
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
+
+                    if (checkWinner()) {
+                        endLabel.setText("[" + btnNine.getText() + "] won the game.");
+                    }
                 }
             }
         });
@@ -374,6 +436,33 @@ public class TicTacToe {
 
         // Turning visible
         frame.setVisible(true);
+    }
+
+    private boolean checkWinner() {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                // Checking diagonals
+                if (!board[0][0].isEmpty() && !board[1][1].isEmpty() && !board[2][2].isEmpty()) {
+                    if (board[0][j].equals("X") && board[1][j].equals("X") && board[2][j].equals("X")) {
+
+                        return true;
+                    } else if (board[0][j].equals("O") && board[1][j].equals("0") && board[2][j].equals("O")) {
+
+                        return true;
+                    }
+                }
+//                // Checking lines
+//                if (board[0][j].equals("O") && board[1][j].equals("O") && board[2][j].equals("O")) {
+//
+//                    return true;
+//                } else if(board[0][j].equals("X") && board[1][j].equals("X") && board[2][j].equals("X")) {
+//
+//                    return true;
+//                }
+            }
+        }
+
+        return false;
     }
 
     public String getPlayer1() {
