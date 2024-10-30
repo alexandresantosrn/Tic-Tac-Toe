@@ -16,7 +16,16 @@ public class TicTacToe {
 
     public TicTacToe() {
         choosePlayer();
+        initBoard();
         initJFrame();
+    }
+
+    private void initBoard() {
+         for (int i = 0; i < board.length; i++) {
+             for (int j = 0; j < board.length; j++) {
+                 board[i][j] = "Z";
+             }
+         }
     }
 
     private void choosePlayer() {
@@ -290,7 +299,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner()) {
-                        endLabel.setText("[" + btnFive.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnFive.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -408,6 +417,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getPlayer2() + "\"] turn!");
                     } else {
                         btnNine.setText(nextPlay);
+                        board[2][2] = nextPlay;
 
                         // Updating the variable nextPlay
                         if (getNextPlay().equals("O")) {
@@ -440,17 +450,28 @@ public class TicTacToe {
 
     private boolean checkWinner() {
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
+            for (int j = 0; j < board.length; j++) {
                 // Checking diagonals
-                if (!board[0][0].isEmpty() && !board[1][1].isEmpty() && !board[2][2].isEmpty()) {
-                    if (board[0][j].equals("X") && board[1][j].equals("X") && board[2][j].equals("X")) {
+                if (i == j) {
+                    if (board[0][0].equals("X") && board[1][1].equals("X") && board[2][2].equals("X")) {
 
                         return true;
-                    } else if (board[0][j].equals("O") && board[1][j].equals("0") && board[2][j].equals("O")) {
+                    } else if (board[0][0].equals("O") && board[1][1].equals("O") && board[2][2].equals("O")) {
 
                         return true;
                     }
                 }
+
+                if (j == 2) {
+                    if (board[0][j].equals("X") && board[j][j].equals("X") && board[j][0].equals("X")) {
+
+                        return true;
+                    } else if(board[0][j].equals("O") && board[j][j].equals("O") && board[j][0].equals("O")) {
+
+                        return true;
+                    }
+                }
+
 //                // Checking lines
 //                if (board[0][j].equals("O") && board[1][j].equals("O") && board[2][j].equals("O")) {
 //
