@@ -462,15 +462,14 @@ public class TicTacToe {
                     }
                 }
 
-                if (j == 2) {
-                    if (board[0][j].equals("X") && board[j][j].equals("X") && board[j][0].equals("X")) {
+                if (board[0][2].equals("X") && board[1][1].equals("X") && board[2][0].equals("X")) {
 
-                        return true;
-                    } else if(board[0][j].equals("O") && board[j][j].equals("O") && board[j][0].equals("O")) {
+                    return true;
+                } else if(board[0][2].equals("O") && board[1][1].equals("O") && board[2][0].equals("O")) {
 
-                        return true;
-                    }
+                    return true;
                 }
+
 
 //                // Checking lines
 //                if (board[0][j].equals("O") && board[1][j].equals("O") && board[2][j].equals("O")) {
