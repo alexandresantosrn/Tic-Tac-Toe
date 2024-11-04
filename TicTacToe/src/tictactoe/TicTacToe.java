@@ -20,14 +20,6 @@ public class TicTacToe {
         initJFrame();
     }
 
-    private void initBoard() {
-         for (int i = 0; i < board.length; i++) {
-             for (int j = 0; j < board.length; j++) {
-                 board[i][j] = "Z";
-             }
-         }
-    }
-
     private void choosePlayer() {
         Random rand = new Random();
         int randomNumber = rand.nextInt(9);
@@ -39,6 +31,14 @@ public class TicTacToe {
         } else {
             setPlayer1("X");
             setPlayer2("O");
+        }
+    }
+
+    private void initBoard() {
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                board[i][j] = "Z";
+            }
         }
     }
 
@@ -166,7 +166,7 @@ public class TicTacToe {
                        endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                    }
 
-                   if (checkWinner()) {
+                   if (checkWinner(btnOne.getText())) {
                         endLabel.setText("[" + btnOne.getText() + "] won the game.");
                    }
                }
@@ -199,7 +199,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnTwo.getText())) {
                         endLabel.setText("[" + btnTwo.getText() + "] won the game.");
                     }
                 }
@@ -232,7 +232,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnThree.getText())) {
                         endLabel.setText("[" + btnThree.getText() + "] won the game.");
                     }
                 }
@@ -265,7 +265,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnFour.getText())) {
                         endLabel.setText("[" + btnFour.getText() + "] won the game.");
                     }
                 }
@@ -298,7 +298,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnFive.getText())) {
                         endLabel.setText("[\"" + btnFive.getText() + "\"] won the game.");
                     }
                 }
@@ -331,7 +331,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnSix.getText())) {
                         endLabel.setText("[" + btnSix.getText() + "] won the game.");
                     }
                 }
@@ -364,7 +364,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnSeven.getText())) {
                         endLabel.setText("[" + btnSeven.getText() + "] won the game.");
                     }
                 }
@@ -397,7 +397,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnEight.getText())) {
                         endLabel.setText("[" + btnEight.getText() + "] won the game.");
                     }
                 }
@@ -430,7 +430,7 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner()) {
+                    if (checkWinner(btnNine.getText())) {
                         endLabel.setText("[" + btnNine.getText() + "] won the game.");
                     }
                 }
@@ -448,37 +448,34 @@ public class TicTacToe {
         frame.setVisible(true);
     }
 
-    private boolean checkWinner() {
+    private boolean checkWinner(String text) {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board.length; j++) {
                 // Checking diagonals
                 if (i == j) {
-                    if (board[0][0].equals("X") && board[1][1].equals("X") && board[2][2].equals("X")) {
-
-                        return true;
-                    } else if (board[0][0].equals("O") && board[1][1].equals("O") && board[2][2].equals("O")) {
+                    if (board[0][0].equals(text) && board[1][1].equals(text) && board[2][2].equals(text)) {
 
                         return true;
                     }
                 }
 
-                if (board[0][2].equals("X") && board[1][1].equals("X") && board[2][0].equals("X")) {
-
-                    return true;
-                } else if(board[0][2].equals("O") && board[1][1].equals("O") && board[2][0].equals("O")) {
+                if (board[0][2].equals(text) && board[1][1].equals(text) && board[2][0].equals(text)) {
 
                     return true;
                 }
 
+                // Checking columns
+                if (board[0][j].equals(text) && board[1][j].equals(text) && board[2][j].equals(text)) {
 
-//                // Checking lines
-//                if (board[0][j].equals("O") && board[1][j].equals("O") && board[2][j].equals("O")) {
-//
-//                    return true;
-//                } else if(board[0][j].equals("X") && board[1][j].equals("X") && board[2][j].equals("X")) {
-//
-//                    return true;
-//                }
+                    return true;
+                }
+
+                // Checking lines
+                if (board[i][0].equals(text) && board[i][1].equals(text) && board[i][2].equals(text)) {
+
+                    return true;
+                }
+
             }
         }
 
