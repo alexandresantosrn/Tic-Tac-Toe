@@ -13,6 +13,7 @@ public class TicTacToe {
     private String player2 = "";
     private final String[][] board = new String[3][3];
     private String nextPlay = "";
+    private boolean hasWinner;
 
     public TicTacToe() {
         choosePlayer();
@@ -144,7 +145,7 @@ public class TicTacToe {
         btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               if (btnOne.getText().isEmpty()) {
+               if (btnOne.getText().isEmpty() && !hasWinner) {
                    if (nextPlay.isEmpty()) {
                        btnOne.setText(getPlayer1());
                        board[0][0] = getPlayer1();
@@ -167,7 +168,7 @@ public class TicTacToe {
                    }
 
                    if (checkWinner(btnOne.getText())) {
-                        endLabel.setText("[" + btnOne.getText() + "] won the game.");
+                       endLabel.setText("[\"" + btnOne.getText() + "\"] won the game.");
                    }
                }
             }
@@ -177,7 +178,7 @@ public class TicTacToe {
         btnTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnTwo.getText().isEmpty()) {
+                if (btnTwo.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnTwo.setText(getPlayer1());
                         board[0][1] = getPlayer1();
@@ -200,7 +201,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnTwo.getText())) {
-                        endLabel.setText("[" + btnTwo.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnTwo.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -210,7 +211,7 @@ public class TicTacToe {
         btnThree.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnThree.getText().isEmpty()) {
+                if (btnThree.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnThree.setText(getPlayer1());
                         board[0][2] = getPlayer1();
@@ -233,7 +234,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnThree.getText())) {
-                        endLabel.setText("[" + btnThree.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnThree.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -243,7 +244,7 @@ public class TicTacToe {
         btnFour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnFour.getText().isEmpty()) {
+                if (btnFour.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnFour.setText(getPlayer1());
                         board[1][0] = getPlayer1();
@@ -266,7 +267,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnFour.getText())) {
-                        endLabel.setText("[" + btnFour.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnFour.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -276,7 +277,7 @@ public class TicTacToe {
         btnFive.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnFive.getText().isEmpty()) {
+                if (btnFive.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnFive.setText(getPlayer1());
                         board[1][1] = getPlayer1();
@@ -309,7 +310,7 @@ public class TicTacToe {
         btnSix.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnSix.getText().isEmpty()) {
+                if (btnSix.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnSix.setText(getPlayer1());
                         board[1][2] = getPlayer1();
@@ -332,7 +333,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnSix.getText())) {
-                        endLabel.setText("[" + btnSix.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnSix.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -342,7 +343,7 @@ public class TicTacToe {
         btnSeven.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnSeven.getText().isEmpty()) {
+                if (btnSeven.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnSeven.setText(getPlayer1());
                         board[2][0] = getPlayer1();
@@ -365,7 +366,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnSeven.getText())) {
-                        endLabel.setText("[" + btnSeven.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnSeven.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -375,7 +376,7 @@ public class TicTacToe {
         btnEight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnEight.getText().isEmpty()) {
+                if (btnEight.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnEight.setText(getPlayer1());
                         board[2][1] = getPlayer1();
@@ -397,8 +398,8 @@ public class TicTacToe {
                         endLabel.setText("It's [\""+ getNextPlay() + "\"] turn!");
                     }
 
-                    if (checkWinner(btnEight.getText())) {
-                        endLabel.setText("[" + btnEight.getText() + "] won the game.");
+                    if (checkWinner(btnEight.getText()) && !hasWinner) {
+                        endLabel.setText("[\"" + btnEight.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -408,7 +409,7 @@ public class TicTacToe {
         btnNine.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (btnNine.getText().isEmpty()) {
+                if (btnNine.getText().isEmpty() && !hasWinner) {
                     if (nextPlay.isEmpty()) {
                         btnNine.setText(getPlayer1());
                         board[2][2] = getPlayer1();
@@ -431,7 +432,7 @@ public class TicTacToe {
                     }
 
                     if (checkWinner(btnNine.getText())) {
-                        endLabel.setText("[" + btnNine.getText() + "] won the game.");
+                        endLabel.setText("[\"" + btnNine.getText() + "\"] won the game.");
                     }
                 }
             }
@@ -454,25 +455,25 @@ public class TicTacToe {
                 // Checking diagonals
                 if (i == j) {
                     if (board[0][0].equals(text) && board[1][1].equals(text) && board[2][2].equals(text)) {
-
+                        setHasWinner(true);
                         return true;
                     }
                 }
 
                 if (board[0][2].equals(text) && board[1][1].equals(text) && board[2][0].equals(text)) {
-
+                    setHasWinner(true);
                     return true;
                 }
 
                 // Checking columns
                 if (board[0][j].equals(text) && board[1][j].equals(text) && board[2][j].equals(text)) {
-
+                    setHasWinner(true);
                     return true;
                 }
 
                 // Checking lines
                 if (board[i][0].equals(text) && board[i][1].equals(text) && board[i][2].equals(text)) {
-
+                    setHasWinner(true);
                     return true;
                 }
 
@@ -506,4 +507,11 @@ public class TicTacToe {
         this.nextPlay = nextPlay;
     }
 
+    public boolean isHasWinner() {
+        return hasWinner;
+    }
+
+    public void setHasWinner(boolean hasWinner) {
+        this.hasWinner = hasWinner;
+    }
 }
